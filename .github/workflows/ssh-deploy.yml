@@ -11,10 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
-      uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        user: ${{ secrets.USERNAME }}
-        pass: ${{ secrets.PASSWORD }}
-        first_ssh: whoami
+        script:
+          whoami
+          whomai
